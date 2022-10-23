@@ -4,7 +4,8 @@
 Software feito utilizando nodeJs e ReactJs
 Para executar esse projeto abra um terminal na pasta raiz e rode o comando 
 >**npm install**
-depois execute o comando 
+
+depois execute o comando
 >**npm start**
 para iniciar o servidor.
 
