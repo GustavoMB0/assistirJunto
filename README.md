@@ -7,6 +7,7 @@ Para executar esse projeto abra um terminal na pasta raiz e rode o comando
 
 depois execute o comando
 >**npm start**
+
 para iniciar o servidor.
 
 Com o servidor rodando abra a pasta watchtogethere execute novamentes os comandos
