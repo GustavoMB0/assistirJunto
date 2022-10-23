@@ -8,7 +8,5 @@ depois execute o comando
 >**npm start**
 para iniciar o servidor.
 
-Com o servidor rodando abra a pasta watchtogethere execute novamente o comando
->**npm install** 
-segudio por 
->**npm start**
+Com o servidor rodando abra a pasta watchtogethere execute novamentes os comandos
+> **npm install** e **npm start**
