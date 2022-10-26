@@ -1,12 +1,14 @@
-const express = require(express);
-const path = require(path);
-const socket = require(socket.io);
-const http = require(http);
-const app = express();
-const server = http.creatServer(app);
-const io = socket(server);
 
-const {ExpressPeerServer} = require(peer).ExpressPeerServer;
+const express = require('express');
+const path = require('path');
+const socket = require('socket.io');
+const http = require('http');
+const app = express();
+const server = http.createServer(app);
+const {Server} = require('socket.io');
+const io = new Server(server);
+
+const ExpressPeerServer = require('peer').ExpressPeerServer;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/peerjs', ExpressPeerServer)
@@ -30,24 +32,24 @@ io.on('joined', (id, userId) => {
         });
 
     });
+
+    socket.on('play', ({method, ctime}) =>{
+        const user = getUser(socket.id);
+        io.to(user.room).emit('play', {method, ctime});
+    });
+    
+    socket.on('pause', ({method, ctime}) => {
+        const unser = getUser(socket.id);
+        io.to(user.room).emit('pause', {method, ctime});
+    })
+    
+    sockt.on('foward_backward', (time) => {
+        const user = getUser(socket.id);
+        io.to(user.room).emit('client_fb', {time});
+    });    
 });
 
-socket.on('play', ({method, ctime}) =>{
-    const user = getUser(socket.id);
-    io.to(user.room).emit('play', {method, ctime});
-});
-
-socket.on('pause', ({method, ctime}) => {
-    const unser = getUser(socket.id);
-    io.to(user.room).emit('pause', {method, ctime});
-})
 
 
-sockt.on('foward_backward', (time) => {
-    const user = getUser(socket.id);
-    io.to(user.room).emit('client_fb', {time});
-});
-
-
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log('server runing on port ${PORT}'));
+const PORT = process.env.PORT || 4000;
+server.listen(PORT, () => console.log(`server runing on port ${PORT}`));
