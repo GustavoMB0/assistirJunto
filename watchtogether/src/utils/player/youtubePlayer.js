@@ -107,7 +107,7 @@ class YoutubePlayer extends React.Component {
                     <Grid container justify="center">
                         <Grid item>
                             <YoutubeFrameWrapper>
-                                <YouTube videoId='${vId}'></YouTube>
+                                <YouTube videoId= {vId} ></YouTube>
                             </YoutubeFrameWrapper>
                         </Grid>
                         <Grid item>

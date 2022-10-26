@@ -21,7 +21,7 @@ const Home = () =>{
             creatRoom(id);
             temp = id;
         }
-        navigate('/sala/${temp}')
+        navigate(`/sala/${temp}`)
     }
 
     return(
